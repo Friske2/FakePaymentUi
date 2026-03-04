@@ -46,7 +46,7 @@ const PaymentGateway = () => {
     }
     
     // Extract first 4 and last 4 digits
-    const first4 = cleanCardNumber.substring(0, 4);
+    const first4 = cleanCardNumber.substring(0, 6);
     const last4 = cleanCardNumber.substring(cleanCardNumber.length - 4);
     
     // Generate random letters A-Z for middle part
@@ -248,7 +248,7 @@ const PaymentGateway = () => {
 
         {/* Footer */}
         <div className="footer">
-          ©2016-2025 · Powered by FAKE PAYMENT | DSSP Team
+          ©2016-2025 · Powered by FAKE PAYMENT | DSSP Team | version 1.0.1
         </div>
       </div>
     </div>
