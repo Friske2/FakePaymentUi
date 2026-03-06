@@ -1,0 +1,178 @@
+/* Inherits global styles from PaymentGateway.css pattern */
+
+/* Tokenize layout row */
+.token-form-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.token-input-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+/* Credit card graphic box */
+.card-graphic-box {
+  flex-shrink: 0;
+  width: 64px;
+  height: 42px;
+  background: #1a1a2e;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  margin-bottom: 2px;
+}
+
+.card-graphic-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+}
+
+.card-chip {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 18px;
+  height: 13px;
+  background: linear-gradient(135deg, #d4a017 0%, #f0c040 50%, #b8860b 100%);
+  border-radius: 2px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.card-stripe {
+  position: absolute;
+  bottom: 10px;
+  left: 8px;
+  right: 8px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 2px;
+}
+
+/* Tokenize button */
+.btn-tokenize {
+  padding: 11px 22px;
+  background: linear-gradient(135deg, #b0b8c1 0%, #d0d7de 100%);
+  color: #333;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  margin-bottom: 2px;
+}
+
+.btn-tokenize:hover:not(:disabled) {
+  background: linear-gradient(135deg, #c8d0d9 0%, #e2e8ef 100%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+.btn-tokenize:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Token copy area */
+.token-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.btn-copy {
+  padding: 11px 18px;
+  background: linear-gradient(135deg, #29b6d8 0%, #0094b8 100%);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  margin-bottom: 2px;
+}
+
+.btn-copy:hover:not(:disabled) {
+  background: linear-gradient(135deg, #33c8ec 0%, #007fa0 100%);
+  box-shadow: 0 2px 8px rgba(0,148,184,0.4);
+  transform: translateY(-1px);
+}
+
+.btn-copy:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.copy-message {
+  font-size: 12px;
+  color: #4caf50;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Button group - clear only */
+.button-group.single {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.btn-clear-token {
+  padding: 10px 48px;
+  background: linear-gradient(135deg, #29b6d8 0%, #0094b8 100%);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-clear-token:hover {
+  background: linear-gradient(135deg, #33c8ec 0%, #007fa0 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 148, 184, 0.4);
+}
+
+.btn-clear-token:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .token-form-row {
+    flex-wrap: wrap;
+  }
+
+  .token-input-group {
+    width: 100%;
+  }
+
+  .card-graphic-box {
+    order: -1;
+  }
+
+  .btn-tokenize,
+  .btn-copy {
+    width: 100%;
+  }
+}

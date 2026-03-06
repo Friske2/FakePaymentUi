@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './PaymentGateway.css';
+import Footer from './Footer';
 
 const PaymentGateway = () => {
   const [formData, setFormData] = useState({
@@ -15,11 +16,24 @@ const PaymentGateway = () => {
 
   const [copyMessage, setCopyMessage] = useState('');
 
+  const formatCardNumber = (value) => {
+    const clean = value.replace(/\D/g, '');
+    const groups = clean.match(/.{1,4}/g) || [];
+    return groups.join(' ').substring(0, 19);
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
+    }));
+  };
+
+  const handleCardNumberChange = (e) => {
+    setFormData(prev => ({
+      ...prev,
+      cardNumber: formatCardNumber(e.target.value)
     }));
   };
 
@@ -122,9 +136,9 @@ const PaymentGateway = () => {
               <input
                 type="text"
                 name="cardNumber"
-                placeholder="Enter card number"
+                placeholder="0000 0000 0000 0000"
                 value={formData.cardNumber}
-                onChange={handleInputChange}
+                onChange={handleCardNumberChange}
                 maxLength="19"
               />
               {/* <div className="card-graphic">
@@ -247,9 +261,7 @@ const PaymentGateway = () => {
         </div>
 
         {/* Footer */}
-        <div className="footer">
-          ©2016-2025 · Powered by FAKE PAYMENT | DSSP Team | version 1.0.1
-        </div>
+        <Footer />
       </div>
     </div>
   );
