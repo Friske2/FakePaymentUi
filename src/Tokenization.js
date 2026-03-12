@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Tokenization.css';
 import Footer from './Footer';
+import { generateToken } from './utils/tokenUtils';
 
 const Tokenization = () => {
   const [cardNumber, setCardNumber] = useState('');
@@ -8,18 +9,7 @@ const Tokenization = () => {
   const [copyMessage, setCopyMessage] = useState('');
   const [isTokenizing, setIsTokenizing] = useState(false);
 
-  const generateToken = (cardNum) => {
-    const clean = cardNum.replace(/\D/g, '');
-    if (clean.length < 8) return 'INVALID_CARD';
-    const first6 = clean.substring(0, 6);
-    const last4 = clean.substring(clean.length - 4);
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let middle = '';
-    for (let i = 0; i < 5; i++) {
-      middle += letters.charAt(Math.floor(Math.random() * letters.length));
-    }
-    return first6 + middle + last4;
-  };
+
 
   const handleTokenize = () => {
     if (!cardNumber.trim()) {

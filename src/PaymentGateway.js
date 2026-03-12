@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './PaymentGateway.css';
 import Footer from './Footer';
+import { generateToken } from './utils/tokenUtils';
 
 const PaymentGateway = () => {
   const [formData, setFormData] = useState({
@@ -51,28 +52,7 @@ const PaymentGateway = () => {
     setCopyMessage('');
   };
 
-  const generateToken = (cardNumber) => {
-    // Remove non-digit characters
-    const cleanCardNumber = cardNumber.replace(/\D/g, '');
-    
-    if (cleanCardNumber.length < 8) {
-      return 'INVALID_CARD';
-    }
-    
-    // Extract first 4 and last 4 digits
-    const first4 = cleanCardNumber.substring(0, 6);
-    const last4 = cleanCardNumber.substring(cleanCardNumber.length - 4);
-    
-    // Generate random letters A-Z for middle part
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const middleLength = 5;
-    let middlePart = '';
-    for (let i = 0; i < middleLength; i++) {
-      middlePart += letters.charAt(Math.floor(Math.random() * letters.length));
-    }
-    
-    return first4 + middlePart + last4;
-  };
+
 
   const handlePayNow = () => {
     if (!formData.cardNumber || !formData.cardHolderName || !formData.amount) {
