@@ -6,11 +6,11 @@ import { generateToken } from './utils/tokenUtils';
 const PaymentGateway = () => {
   const [formData, setFormData] = useState({
     cardNumber: '',
-    expMonth: 'MM',
-    expYear: 'YYYY',
-    cardHolderName: '',
-    policyNumber: '',
-    amount: '',
+    expMonth: '12',
+    expYear: '2030',
+    cardHolderName: 'TEST',
+    policyNumber: 'MOCK-1234567890',
+    amount: '300000.00',
     transactionStatus: '',
     tokenValue: ''
   });

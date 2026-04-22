@@ -13,10 +13,17 @@ export const generateToken = (cardNumber) => {
   const last4 = clean.substring(clean.length - 4);
 
   const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const digits = '0123456789';
   let middle = '';
-  for (let i = 0; i < 6; i++) {
+  
+  // สร้าง 3 ตัวอักษรและ 3 ตัวเลข
+  for (let i = 0; i < 3; i++) {
     middle += letters.charAt(Math.floor(Math.random() * letters.length));
+    middle += digits.charAt(Math.floor(Math.random() * digits.length));
   }
+  
+  // สุ่มเรียงลำดับใหม่
+  middle = middle.split('').sort(() => Math.random() - 0.5).join('');
 
   return first6 + middle + last4;
 };
